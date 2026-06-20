@@ -1,5 +1,8 @@
 name: CI
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 on:
   push:
     branches: [ main ]
@@ -15,7 +18,7 @@ jobs:
 
     steps:
       # Checkout the repository to work with
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       # Overwrite log.md with the current Indonesian time (WIB - UTC+7)
       - name: Overwrite log with Indonesian time
