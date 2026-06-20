@@ -12,6 +12,9 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,6 +22,8 @@ jobs:
     steps:
       # Checkout the repository to work with
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
       # Overwrite log.md with the current Indonesian time (WIB - UTC+7)
       - name: Overwrite log with Indonesian time
